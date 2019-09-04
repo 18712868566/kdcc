@@ -1,0 +1,34 @@
+page {
+    background: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.jilu {
+    padding: 0 20rpx;
+}
+
+.h1 {
+    color: #4CAD6A;
+    font-size: 26rpx;
+    background: #fff;
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.icon-ls {
+    width: 48rpx;
+    height: 48rpx;
+    padding-right: 8rpx;
+}
+
+.lists {
+    font-size: 26rpx;
+    color: #666;
+    padding: 30rpx 0;
+    border-bottom: 1rpx solid rgba(0, 0, 0, 0.2)
+}

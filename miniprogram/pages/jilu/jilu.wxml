@@ -1,0 +1,11 @@
+<!--jilu.wxml-->
+<view class="container">
+    <view class="h1" hover-class="none" hover-stop-propagation="false">
+        <image class="icon-ls" src="../../images/icon-ls.png" mode="scaleToFill"></image>历史查询记录
+    </view>
+    <view class="jilu" hover-class="none" hover-stop-propagation="false">
+        <view wx:for="{{item}}" wx:key="{{index}}" class="lists">
+            单号: {{item.no}}
+        </view>
+    </view>
+</view>

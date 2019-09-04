@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="test-bg">
+        <image src="../../images/bg-white.png" class="bg-image" mode="scaleToFill"></image>
+
+        <view class="nav">
+            <button class="btn-saosao" bindtap="onSaoSao" hover-class="none" hover-stop-propagation="false">
+                <image src="../../images/icon-ss.png" class="icon-saosao" mode="scaleToFill"></image>
+                扫一扫
+            </button>
+            <button class="btn-detail" bindtap="onLookJiLu" hover-class="none" hover-stop-propagation="false">
+                <image src="../../images/icon-jl.png" class="icon-jilu" mode="scaleToFill"></image>
+                看记录
+            </button>
+        </view>
+
+    </view>
+    <!-- 用户 openid -->
+    <view class="userinfo">
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+            请先登录
+        </button>
+        <block wx:else>
+            <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <!-- <text class="userinfo-nickname">{{userInfo.nickName}}</text> -->
+            <view class=""> 我的模板 </view>
+        </block>
+    </view>
+    <view class="getDatas">
+        <view class="msg-view">
+            <view class="infotxt"> 消息模板 </view>
+            <view class="moban">
+                {{mobanData.msg}}
+            </view>
+            <view class="beizhu">
+                {{mobanData.tips}}
+            </view>
+        </view>
+        <view class="setmoban" hover-class="none" hover-stop-propagation="false">
+            <image src="../../images/add.png" mode="scaleToFill"></image>添加模板
+        </view>
+    </view>
+
+</view>

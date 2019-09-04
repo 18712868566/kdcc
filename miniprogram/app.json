@@ -1,0 +1,16 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/getInfoData/getInfoData",
+        "pages/jilu/jilu"
+    ],
+    "window": {
+        "backgroundColor": "#4CAD6A",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#4CAD6A",
+        "navigationBarTitleText": "口袋查查",
+        "navigationBarTextStyle": "white"
+    },
+    "sitemapLocation": "sitemap.json",
+    "style": "v2"
+}

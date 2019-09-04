@@ -1,0 +1,29 @@
+<view class="container">
+    <view class="h1">
+        <image class="icon-ls" src="../../images/icon-wl.png" mode="widthFix" />物流信息
+    </view>
+    <view class="listinfo">
+        <view class="item" wx:if="{{un}}">
+            快递单号:{{un}}
+        </view>
+        <view wx:for="{{infoList}}" wx:key="{{index}}" class="list">
+            <!--  <text class="" selectable="false" space="false" decode="false">
+                {{index}}
+            </text> -->
+            <view class="datetime" selectable="false" space="false" decode="false">
+                {{item.datetime}}
+            </view>
+            <view class="remark" selectable="false" space="false" decode="false">
+                {{item.remark}}
+            </view>
+        </view>
+
+    </view>
+
+    <!-- <view class="logo" wx:if="{{com}}">
+        <image src="https://cdn.kuaidi100.com/images/all/56/{{com}}.png" mode="scaleToFill"></image>
+    </view>
+    <view class="logo" wx:else="{{com}}">
+        <image src="https://cdn.kuaidi100.com/images/all/56/other.png" mode="scaleToFill"></image>
+    </view> -->
+</view>
