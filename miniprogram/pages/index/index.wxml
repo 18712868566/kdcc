@@ -29,14 +29,21 @@
     <view class="getDatas">
         <view class="msg-view">
             <view class="infotxt"> 消息模板 </view>
-            <view class="moban">
-                {{mobanData.msg}}
+
+            <view wx:for="{{mobanData}}" wx:key="{{index}}" class="item">
+                <view class="moban">
+                    <text class="num" selectable="false" space="false" decode="false">
+                        编号{{index+1}} 
+                   </text> : {{item.msg}}
+                </view>
+                <view class="beizhu">
+                    备注:{{item.tips}}
+                </view>
             </view>
-            <view class="beizhu">
-                {{mobanData.tips}}
-            </view>
+
+
         </view>
-        <view class="setmoban" hover-class="none" hover-stop-propagation="false">
+        <view class="setmoban" hover-class="none" hover-stop-propagation="false" bindtap="addUsers">
             <image src="../../images/add.png" mode="scaleToFill"></image>添加模板
         </view>
     </view>

@@ -91,6 +91,15 @@ page {
     font-size: 28rpx;
 }
 
+.item {
+    padding-bottom: 20rpx;
+}
+
+.num {
+    color: #4CAD6A;
+    display: inline-block;
+}
+
 .moban {
     padding: 20rpx 0;
 }

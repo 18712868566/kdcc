@@ -2,7 +2,8 @@
     "pages": [
         "pages/index/index",
         "pages/getInfoData/getInfoData",
-        "pages/jilu/jilu"
+        "pages/jilu/jilu",
+        "pages/formdatas/formdatas"
     ],
     "window": {
         "backgroundColor": "#4CAD6A",

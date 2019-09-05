@@ -1,0 +1,35 @@
+page {
+    background: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.jilu {
+    padding: 0 20rpx;
+}
+
+.h1 {
+    color: #4CAD6A;
+    font-size: 30rpx;
+    background: #fff;
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.formdatabox {
+    margin-top: 15rpx;
+}
+
+.updata {
+    margin-top: 50rpx;
+}
+
+.section {
+    display: inline-block;
+    margin-left: 50rpx;
+    color: #666;
+}

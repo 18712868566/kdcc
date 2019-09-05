@@ -7,14 +7,15 @@
             快递单号:{{un}}
         </view>
         <view wx:for="{{infoList}}" wx:key="{{index}}" class="list">
-            <!--  <text class="" selectable="false" space="false" decode="false">
-                {{index}}
-            </text> -->
-            <view class="datetime" selectable="false" space="false" decode="false">
-                {{item.datetime}}
-            </view>
-            <view class="remark" selectable="false" space="false" decode="false">
-                {{item.remark}}
+
+            <!-- 如果请求状态不为200 -->
+            <view wx:if="{{isStatus}}" class="datetime" selectable="false" space="false" decode="false">
+                <view class="datetime" selectable="false" space="false" decode="false">
+                    {{item.datetime}}
+                </view>
+                <view class="remark" selectable="false" space="false" decode="false">
+                    {{item.remark}}
+                </view>
             </view>
         </view>
 

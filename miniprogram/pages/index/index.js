@@ -3,18 +3,18 @@ const app = getApp()
 
 Page({
     data: {
+        // canIUse: wx.canIUse('button.open-type.getUserInfo'),
         avatarUrl: '',
         userInfo: {},
         logged: false,
         takeSession: false,
         requestResult: '',
-        mobanData: {
-            msg: '您好你的的快递已送达到xxx街道,xxx号楼,请速来取...',
-            tips: '备注: EMS用提示语'
-        }
+        mobanData: null
     },
 
     onLoad: function() {
+        var that = this;
+
         if (!wx.cloud) {
             wx.redirectTo({
                 url: '../chooseLib/chooseLib',
@@ -29,6 +29,7 @@ Page({
                     // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
                     wx.getUserInfo({
                         success: res => {
+                            // console.log(res);
                             this.setData({
                                 avatarUrl: res.userInfo.avatarUrl,
                                 userInfo: res.userInfo
@@ -37,10 +38,48 @@ Page({
                     })
                 }
             }
-        })
+        });
 
-        // 登陆调用云函数
-        // this.onMyCloudLogin();
+        // 调用云函数 --获取opid -- 从服务器获取保存的模板信息
+        wx.cloud.callFunction({
+            name: 'login',
+            data: {},
+            success: res => {
+                console.log('[云函数] [login] user openid: ', res.result.openid)
+                console.log(res.result.openid);
+                wx.showToast({
+                    title: '加载中',
+                    icon: 'loading',
+                    duration: 2000
+                });
+                // 初始化数据库
+                const db = wx.cloud.database();
+                db.collection('users').where({
+                        _openid: res.result.openid, //获取对应openid的数据
+                        done: false
+                    })
+                    .get({
+                        success: function(res) {
+                            console.log(res.data);
+                            that.setData({
+                                mobanData: res.data
+                            })
+                        },
+                        fail: function(err) {
+                            //失败执行
+                        }
+                    });
+            },
+            fail: err => {
+                console.error('[云函数] [login] 调用失败', err)
+                wx.navigateTo({
+                    url: '../deployFunctions/deployFunctions',
+                })
+            }
+        });
+    },
+    bindGetUserInfo(e) {
+        console.log(e.detail.userInfo)
     },
     onMyCloudLogin: function() {
         wx.cloud.callFunction({
@@ -83,6 +122,11 @@ Page({
     onLookJiLu: function() {
         wx.navigateTo({
             url: '../jilu/jilu',
+        })
+    },
+    addUsers: function() {
+        wx.navigateTo({
+            url: '../formdatas/formdatas',
         })
     },
     // 上传图片
@@ -170,4 +214,5 @@ Page({
             }
         })
     }
+
 })

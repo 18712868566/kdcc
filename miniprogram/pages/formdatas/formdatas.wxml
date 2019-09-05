@@ -1,0 +1,18 @@
+<!--push.wxml-->
+<view class="container">
+    <view class="formdatabox" hover-class="none" hover-stop-propagation="false">
+        <view class="h1" hover-class="none" hover-stop-propagation="false">
+            信息:
+            <view class="section">
+                <textarea bindinput="getUserMsg" auto-height placeholder="要发送的详细信息" auto-focus />
+            </view>
+        </view>
+        <view class="h1" hover-class="none" hover-stop-propagation="false">
+            备注:
+            <view class="section">
+                <textarea bindinput="getUserTips" auto-height placeholder="(例:EMS)" />
+            </view>
+        </view>
+    </view>
+    <button type="primary" bindtap="updata" class="updata"> 保存 </button>
+</view>
